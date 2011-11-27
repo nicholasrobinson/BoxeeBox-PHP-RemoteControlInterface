@@ -45,6 +45,8 @@ class RemoteControlInterface
 	/** 
 	* Sets the volume as a percentage of the maximum possible.
 	*
+	* @param	percentage		percentage to set
+	*
 	* @return string
 	*/
 	public function SetVolume($percent)
@@ -104,13 +106,51 @@ class RemoteControlInterface
 		return self::stringify(__FUNCTION__);
 	}
 	
+	/** 
+	* Toggles the sound on/off.
+	*
+	* @return string
+	*/
+	public function Mute()
+	{
+		return self::stringify(__FUNCTION__);
+	}
+	
+	/** 
+	* Sets the playing position of the currently playing media as a percentage of the media’s length.
+	*
+	* @param	percentage		percentage to seek
+	*
+	* @return string
+	*/
+	public function SeekPercentage($percentage)
+	{
+		return self::stringify(__FUNCTION__, array($percentage));
+	}
+	
+	/** 
+	* Adds/Subtracts the current percentage on to the current postion in the song
+	*
+	* @param	relativePercentage		relative percentage to seek
+	*
+	* @return string
+	*/
+	public function SeekPercentageRelative($relativePercentage)
+	{
+		return self::stringify(__FUNCTION__, array($relativePercentage));
+	}
+	
+	/** 
+	* Retrieves the current playing position of the currently playing media as a percentage of the media’s length.
+	*
+	* @return string
+	*/
+	public function GetPercentage()
+	{
+		return self::stringify(__FUNCTION__);
+	}
+	
 /*
-Commands
-- Mute Toggles the sound on/off.
-- SeekPercentage(percent) Sets the playing position of the currently playing media as a percentage of the media’s length.
-- SeekPercentageRelative(relative-percentage) Adds/Subtracts the current percentage on to the current postion in the song
-- GetPercentage Retrieves the current playing position of the currently playing media as a percentage of the media’s length.
-
 Inputs (partial list)
 - SendKey(270) Click on UP button
 - SendKey(271) Click on DOWN button
