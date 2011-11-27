@@ -1,0 +1,42 @@
+BoxeeBox PHP Remote Control Interface SDK by Nicholas Robinson
+
+This project houses a fully functional and re-usable PHP SDK for the BoxeeBox Remote Control Interface API. The SDK encompasses both the UDP discovery protocol and the HTTP Remote Control API (which is now deprecated). Although the Remote Control API can be implemented in pure HTML/javascript (as illustrated in javascript.html), the use of PHP gives added flexibility / command line utility allowing use outside of a browser.
+
+Several examples are included as suggestions for possible uses and to help get you started. My hope is that given the prevalence of PHP and the ease of access to web server technologies this SDK will increase and diversify the number of devices that can interact with the BoxeeBox. 
+
+To see it in action go here (sockets/cURL are disabled for safety):
+http://www.nicholassavilerobinson.com/BoxeeBox-PHP-RemoteControlInterface/Examples/browser.php
+
+Requirements:
+- PHP 5.2+
+- Web Server (optional)
+
+Installation:
+- Download/Clone project folder
+- Place in your web root (optional)
+- Run the the example scripts (found in the "Examples/" folder) in your web browser or from the command line
+- Make sure to utilize Examples/browser.php to get familiar with the API
+
+Please Note: 
+
+For simplicity of cross-platform implementation/compatibility there is no attempt to handle state within the SDK. As a result connection settings (address, port, authentication) must be handled by your implementation (examples are included with the SDK).
+
+To maintain connection state there are many options, including:
+- Browser Cookies
+- PHP Sessions
+- Local Storage
+- Databases
+- HTML Form submission [POST/GET]
+- Javascript
+
+Please let me know if you find this useful or come up with any novel implementations.
+
+Enjoy!
+
+Nicholas Robinson
+me@nicholassavilerobinson.com
+
+P.S. You 'could' host your BoxeeBox JSONRPC application on the public internet and control your BoxeeBox from anywhere. If you choose to go this route, please consider the security implications of potentially allowing anyone on the internet to control your BoxeeBox.
+
+References:
+http://developer.boxee.tv/Remote_Control_Interface
