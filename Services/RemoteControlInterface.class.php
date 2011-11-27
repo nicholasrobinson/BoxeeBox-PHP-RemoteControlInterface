@@ -11,9 +11,9 @@
 class RemoteControlInterface
 {
 
-	/** 
-	* Auxiliary methods
-	*/
+/** 
+* Auxiliary methods
+*/
 	
 	/** 
 	* Flatten command into BoxeeBox Remote Control Interface command
@@ -28,9 +28,9 @@ class RemoteControlInterface
 		return $command . '(' . implode(',', $parameters) . ')';
 	}
 	
-	/** 
-	* Commands
-	*/
+/** 
+* XBMC Commands
+*/
 	
 	/** 
 	* Retrieves the current volume setting as a percentage of the maximum possible value.
@@ -107,16 +107,6 @@ class RemoteControlInterface
 	}
 	
 	/** 
-	* Toggles the sound on/off.
-	*
-	* @return string
-	*/
-	public function Mute()
-	{
-		return self::stringify(__FUNCTION__);
-	}
-	
-	/** 
 	* Sets the playing position of the currently playing media as a percentage of the media’s length.
 	*
 	* @param	percentage		percentage to seek
@@ -150,19 +140,107 @@ class RemoteControlInterface
 		return self::stringify(__FUNCTION__);
 	}
 	
-/*
-Inputs (partial list)
-- SendKey(270) Click on UP button
-- SendKey(271) Click on DOWN button
-- SendKey(272) Click on LEFT button
-- SendKey(273) Click on RIGHT button
-- SendKey(275) Click on BACK button
-- SendKey(61704) Sends an backspace key (used in keyboard)
-- SendKey(<ASCII value + 61696>) Sends an ASCII key (used in keyboard)
-
-Below is a list of commands added by boxee:
-- getKeyboardText Returns whether a virtual keyboard is active, whether it has hidden text and the actual text in the keyboard.
+	/** 
+	* Send specified key
+	*
+	* @param	key		key to send
+	*
+	* @return string
+	*/
+	public function SendKey($key)
+	{
+		return self::stringify(__FUNCTION__, array($key));
+	}
+	
+/** 
+* BoxeeBox Commands
 */
+	
+	/** 
+	* Returns whether a virtual keyboard is active, whether it has hidden text and the actual text in the keyboard.
+	*
+	* @return string
+	*/
+	public function getKeyboardText()
+	{
+		return self::stringify(__FUNCTION__);
+	}
+	
+/** 
+* Convenience wrapper commands
+*/
+	
+	/** 
+	* Sends an ASCII key (used in keyboard)
+	*
+	* @param	key		key to send
+	*
+	* @return string
+	*/
+	public function SendASCIIKey($key)
+	{
+		return self::stringify(__FUNCTION__, array($key + 61696));
+	}
+	
+	/** 
+	* Click on UP button
+	*
+	* @return string
+	*/
+	public function SendUpKey()
+	{
+		return self::stringify(__FUNCTION__);
+	}
+	
+	/** 
+	* Click on DOWN button
+	*
+	* @return string
+	*/
+	public function SendDownKey()
+	{
+		return self::stringify(__FUNCTION__);
+	}
+	
+	/** 
+	* Click on LEFT button
+	*
+	* @return string
+	*/
+	public function SendLeftKey()
+	{
+		return self::stringify(__FUNCTION__);
+	}
+	
+	/** 
+	* Click on RIGHT button
+	*
+	* @return string
+	*/
+	public function SendRightKey()
+	{
+		return self::stringify(__FUNCTION__);
+	}
+	
+	/** 
+	* Click on BACK button
+	*
+	* @return string
+	*/
+	public function SendBackKey()
+	{
+		return self::stringify(__FUNCTION__);
+	}
+	
+	/** 
+	* Click on SPACE button
+	*
+	* @return string
+	*/
+	public function SendSpaceKey()
+	{
+		return self::stringify(__FUNCTION__);
+	}
 	
 }
 
