@@ -189,7 +189,7 @@ class RemoteControlInterface
 	*/
 	public function SendUpKey()
 	{
-		return self::stringify(__FUNCTION__);
+		return self::SendKey(270);
 	}
 	
 	/** 
@@ -199,7 +199,7 @@ class RemoteControlInterface
 	*/
 	public function SendDownKey()
 	{
-		return self::stringify(__FUNCTION__);
+		return self::SendKey(271);
 	}
 	
 	/** 
@@ -209,7 +209,7 @@ class RemoteControlInterface
 	*/
 	public function SendLeftKey()
 	{
-		return self::stringify(__FUNCTION__);
+		return self::SendKey(272);
 	}
 	
 	/** 
@@ -219,7 +219,7 @@ class RemoteControlInterface
 	*/
 	public function SendRightKey()
 	{
-		return self::stringify(__FUNCTION__);
+		return self::SendKey(273);
 	}
 	
 	/** 
@@ -229,17 +229,17 @@ class RemoteControlInterface
 	*/
 	public function SendBackKey()
 	{
-		return self::stringify(__FUNCTION__);
+		return self::SendKey(275);
 	}
 	
 	/** 
-	* Click on SPACE button
+	* Sends an backspace key (used in keyboard)
 	*
 	* @return string
 	*/
-	public function SendSpaceKey()
+	public function SendBackspaceKey()
 	{
-		return self::stringify(__FUNCTION__);
+		return self::SendKey(61704);
 	}
 	
 }
