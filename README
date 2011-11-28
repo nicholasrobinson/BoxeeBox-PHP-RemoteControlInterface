@@ -36,7 +36,7 @@ Enjoy!
 Nicholas Robinson
 me@nicholassavilerobinson.com
 
-P.S. You 'could' host your BoxeeBox JSONRPC application on the public internet and control your BoxeeBox from anywhere. If you choose to go this route, please consider the security implications of potentially allowing anyone on the internet to control your BoxeeBox.
+P.S. You 'could' host your BoxeeBox Remote Control Interface application on the public internet and control your BoxeeBox from anywhere. If you choose to go this route, please consider the security implications of potentially allowing anyone on the internet to control your BoxeeBox.
 
 References:
 http://developer.boxee.tv/Remote_Control_Interface
