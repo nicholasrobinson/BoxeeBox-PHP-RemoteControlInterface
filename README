@@ -21,13 +21,13 @@ Please Note:
 
 For simplicity of cross-platform implementation/compatibility there is no attempt to handle state within the SDK. As a result connection settings (address, port, authentication) must be handled by your implementation (examples are included with the SDK).
 
-To maintain connection state there are many options, including:
+To maintain connection settings there are many options, including:
 - Browser Cookies
 - PHP Sessions
 - Local Storage
 - Databases
 - HTML Form submission [POST/GET]
-- Javascript
+- Javascript (as shown in Examples/browser.php)
 
 Please let me know if you find this useful or come up with any novel implementations.
 
