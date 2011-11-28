@@ -1,6 +1,6 @@
 BoxeeBox PHP Remote Control Interface SDK by Nicholas Robinson
 
-This project houses a fully functional and re-usable PHP SDK for the BoxeeBox Remote Control Interface API. The SDK encompasses both the UDP discovery protocol and the HTTP Remote Control API (which is now deprecated). Although the Remote Control API can be implemented in pure HTML/javascript (as illustrated in javascript.html), the use of PHP gives added flexibility / command line utility allowing use outside of a browser.
+This project houses a fully functional and re-usable PHP SDK for the BoxeeBox Remote Control Interface API. The SDK encompasses both the UDP discovery protocol and the HTTP Remote Control API (which is now deprecated). Although the Remote Control API can be implemented in pure HTML/javascript (as illustrated in javascript.php / keypress.php and keypress.html), the use of PHP gives added flexibility / command line utility and permits use outside of a browser.
 
 Several examples are included as suggestions for possible uses and to help get you started. My hope is that given the prevalence of PHP and the ease of access to web server technologies this SDK will increase and diversify the number of devices that can interact with the BoxeeBox. 
 
@@ -27,7 +27,7 @@ To maintain connection settings there are many options, including:
 - Local Storage
 - Databases
 - HTML Form submission [POST/GET]
-- Javascript (as shown in Examples/browser.php)
+- Javascript (as shown in Examples/browser.php, Examples/javascript.php and Examples/keypress.php)
 
 Please let me know if you find this useful or come up with any novel implementations.
 

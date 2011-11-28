@@ -18,8 +18,8 @@ class RemoteControlInterface
 	/** 
 	* Flatten command into BoxeeBox Remote Control Interface command
 	*
-	* @param  $command		 Command for stringification
-	* @param  $parameters	 Array of parameters
+	* @param  command		  Command for stringification
+	* @param  parameters	  Array of parameters
 	*
 	* @return string
 	*/
@@ -45,7 +45,7 @@ class RemoteControlInterface
 	/** 
 	* Sets the volume as a percentage of the maximum possible.
 	*
-	* @param	percentage		percentage to set
+	* @param	percentage		 percentage to set
 	*
 	* @return string
 	*/
@@ -109,7 +109,7 @@ class RemoteControlInterface
 	/** 
 	* Sets the playing position of the currently playing media as a percentage of the media’s length.
 	*
-	* @param	percentage		percentage to seek
+	* @param	percentage			 percentage to seek
 	*
 	* @return string
 	*/
@@ -121,7 +121,7 @@ class RemoteControlInterface
 	/** 
 	* Adds/Subtracts the current percentage on to the current postion in the song
 	*
-	* @param	relativePercentage		relative percentage to seek
+	* @param	relativePercentage	 relative percentage to seek
 	*
 	* @return string
 	*/
@@ -143,7 +143,7 @@ class RemoteControlInterface
 	/** 
 	* Send specified key
 	*
-	* @param	key		key to send
+	* @param	key		 key to send
 	*
 	* @return string
 	*/
@@ -167,17 +167,17 @@ class RemoteControlInterface
 	}
 	
 /** 
-* Convenience wrapper commands
+* Convenience wrapper macro commands
 */
 	
 	/** 
 	* Sends an ASCII key (used in keyboard)
 	*
-	* @param	key		key to send
+	* @param	key		 key to send
 	*
 	* @return string
 	*/
-	public function SendASCIIKey($key)
+	public function SendASCIIKeyMacro($key)
 	{
 		return self::stringify(__FUNCTION__, array($key + 61696));
 	}
@@ -187,7 +187,7 @@ class RemoteControlInterface
 	*
 	* @return string
 	*/
-	public function SendUpKey()
+	public function SendUpKeyMacro()
 	{
 		return self::SendKey(270);
 	}
@@ -197,7 +197,7 @@ class RemoteControlInterface
 	*
 	* @return string
 	*/
-	public function SendDownKey()
+	public function SendDownKeyMacro()
 	{
 		return self::SendKey(271);
 	}
@@ -207,7 +207,7 @@ class RemoteControlInterface
 	*
 	* @return string
 	*/
-	public function SendLeftKey()
+	public function SendLeftKeyMacro()
 	{
 		return self::SendKey(272);
 	}
@@ -217,7 +217,7 @@ class RemoteControlInterface
 	*
 	* @return string
 	*/
-	public function SendRightKey()
+	public function SendRightKeyMacro()
 	{
 		return self::SendKey(273);
 	}
@@ -227,7 +227,7 @@ class RemoteControlInterface
 	*
 	* @return string
 	*/
-	public function SendBackKey()
+	public function SendBackKeyMacro()
 	{
 		return self::SendKey(275);
 	}
@@ -237,7 +237,7 @@ class RemoteControlInterface
 	*
 	* @return string
 	*/
-	public function SendBackspaceKey()
+	public function SendBackspaceKeyMacro()
 	{
 		return self::SendKey(61704);
 	}

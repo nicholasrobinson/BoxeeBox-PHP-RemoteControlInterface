@@ -1,0 +1,213 @@
+<!-- This is an example render of keypress.php to illustrate usage of the javascript SDK in a pure html/javascript context -->
+<html>
+	<head>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+		<script type="text/javascript">
+			// Create command iframe
+			$(document).ready(function(){ $('<iframe style="display: none; height:1px; width:1px;" id="command" />').appendTo('body'); });
+
+			// Define default server parameters
+			window.serverAddress = "boxeebox";
+			window.serverPort = "8800";
+
+			/**
+			* Execute BoxeeBox Remote Control Interface command
+			* Log and return destination url (access to contents forbidden to javascript by same-origin policy)
+			* Note: jsonp could overcome this, however this requires a valid json response
+			*
+			* @param  command		 Command for execution
+			*
+			* @return null
+			*/
+			function BBRCI(command)
+			{
+				$('#command').attr("src", "http://" + window.serverAddress + ":" + window.serverPort + "/xbmcCmds/xbmcHttp?command=" + command);
+				console.log($('#command').attr("src"));
+				return $('#command').attr("src");
+			}
+
+			/**
+			* Flatten command into BoxeeBox Remote Control Interface command
+			*
+			* @return string
+			*/
+			function GetVolume()
+			{
+				return BBRCI("GetVolume()");
+			}
+
+			/**
+			* Flatten command into BoxeeBox Remote Control Interface command
+			*
+			* @param  percent		 percentage to set
+			*
+			* @return string
+			*/
+			function SetVolume(percent)
+			{
+				return BBRCI("SetVolume(" + percent + ")");
+			}
+
+			/**
+			* Flatten command into BoxeeBox Remote Control Interface command
+			*
+			* @return string
+			*/
+			function Mute()
+			{
+				return BBRCI("Mute()");
+			}
+
+			/**
+			* Flatten command into BoxeeBox Remote Control Interface command
+			*
+			* @return string
+			*/
+			function Pause()
+			{
+				return BBRCI("Pause()");
+			}
+
+			/**
+			* Flatten command into BoxeeBox Remote Control Interface command
+			*
+			* @return string
+			*/
+			function Stop()
+			{
+				return BBRCI("Stop()");
+			}
+
+			/**
+			* Flatten command into BoxeeBox Remote Control Interface command
+			*
+			* @return string
+			*/
+			function PlayNext()
+			{
+				return BBRCI("PlayNext()");
+			}
+
+			/**
+			* Flatten command into BoxeeBox Remote Control Interface command
+			*
+			* @return string
+			*/
+			function PlayPrev()
+			{
+				return BBRCI("PlayPrev()");
+			}
+
+			/**
+			* Flatten command into BoxeeBox Remote Control Interface command
+			*
+			* @param  percentage		 percentage to seek
+			*
+			* @return string
+			*/
+			function SeekPercentage(percentage)
+			{
+				return BBRCI("SeekPercentage(" + percentage + ")");
+			}
+
+			/**
+			* Flatten command into BoxeeBox Remote Control Interface command
+			*
+			* @param  relativePercentage		 relative percentage to seek
+			*
+			* @return string
+			*/
+			function SeekPercentageRelative(relativePercentage)
+			{
+				return BBRCI("SeekPercentageRelative(" + relativePercentage + ")");
+			}
+
+			/**
+			* Flatten command into BoxeeBox Remote Control Interface command
+			*
+			* @return string
+			*/
+			function GetPercentage()
+			{
+				return BBRCI("GetPercentage()");
+			}
+
+			/**
+			* Flatten command into BoxeeBox Remote Control Interface command
+			*
+			* @param  key		 key to send
+			*
+			* @return string
+			*/
+			function SendKey(key)
+			{
+				return BBRCI("SendKey(" + key + ")");
+			}
+
+			/**
+			* Flatten command into BoxeeBox Remote Control Interface command
+			*
+			* @return string
+			*/
+			function getKeyboardText()
+			{
+				return BBRCI("getKeyboardText()");
+			}
+
+		</script>
+		<script type="text/javascript">
+			// Bind text fields to global server parameters
+			$(document).ready(function() 
+			{
+				$('#server_address').val(window.serverAddress);
+				$('#server_address').change(function() 
+				{ 
+					window.serverAddress = $('#server_address').val(); 
+				});
+				$('#server_port').val(window.serverPort);
+				$('#server_port').change(function() 
+				{ 
+					window.serverPort = $('#server_port').val(); 
+				});
+			});
+			// Handle key-presses
+			$(window).keydown(function(e)
+			{
+				switch ( e.keyCode ) {
+					case 27:
+						SendKey(275);
+						break;
+					case 38:
+						SendKey(270);
+						break;
+					case 40:
+						SendKey(271);
+						break; 
+					case 37:
+						SendKey(272);
+						break; 
+					case 39:
+						SendKey(273);
+						break; 
+					default:
+						break;
+				}
+				return;
+			});
+		</script>
+	</head>
+	<body>
+		<h2>Use your Keyboard to Control your BoxeeBox</h2>
+		<hr />
+		<p>Ensure you configure your device first by editing Examples/javascript.php</a>.
+		<hr />
+		Hostname/IP: <input type="text" id="server_address" />
+		Port: <input type="text" id="server_port" />
+		<hr />
+		<p>&lt;up&gt; = Up</p>
+		<p>&lt;down&gt; = Down</p>
+		<p>&lt;left&gt; = Left</p>
+		<p>&lt;right&gt; = Right</p>
+		<p>&lt;escape&gt; = Back</p>
+	</body>
+</html>

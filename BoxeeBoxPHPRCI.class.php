@@ -85,7 +85,7 @@ class BoxeeBoxPHPRCI
 		}
 		# Otherwise return false
 		else
-		{
+		{	
 			return false;
 		}
 	}
