@@ -4,10 +4,10 @@ This project houses a fully functional and re-usable PHP SDK for the BoxeeBox Re
 
 Several examples are included as suggestions for possible uses and to help get you started. My hope is that given the prevalence of PHP and the ease of access to web server technologies this SDK will increase and diversify the number of devices that can interact with the BoxeeBox. 
 
-The soon-to-be-deprecated HTTP API can easily be combined with the new JSONRPC API to create a robust and future-proof BoxeeBox remote control web application. Why not have a look at https://github.com/nicholasrobinson/BoxeeBox-PHP-JSONRPC to see what differences exist between the two APIs?
-
 To see it in action go here (sockets/cURL are disabled for safety):
 http://www.nicholassavilerobinson.com/BoxeeBox-PHP-RemoteControlInterface/Examples/browser.php
+
+The soon-to-be-deprecated HTTP API can easily be combined with the new JSONRPC API to create a robust and future-proof BoxeeBox remote control web application. Why not have a look at https://github.com/nicholasrobinson/BoxeeBox-PHP-JSONRPC to see what differences exist between the two APIs?
 
 Requirements:
 - PHP 5.2+
