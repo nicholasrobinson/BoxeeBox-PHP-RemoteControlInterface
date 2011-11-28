@@ -69,14 +69,25 @@ class BoxeeBoxPHPRCI
 	/** 
 	* Automatically discover BoxeeBox
 	*
-	* @return null
+	* @return array($serverAddress, $serverPort)
 	*/
 	public function discover()
 	{
 		# Execute UDP discovery
-		$this->udpServer->discover();
-		# Store http server address and port
-		self::setHttpServer($this->udpServer->getServerAddress(), $this->udpServer->getServerPort());
+		$response = $this->udpServer->discover();
+		# If discovery was successful
+		if ($response !== false)
+		{
+			# Store http server address and port (use address as local DNS may not resolve correctly)
+			self::setHttpServer($this->udpServer->getServerAddress(), $this->udpServer->getServerPort());
+			# Return server address and port
+			return array($this->udpServer->getServerAddress(), $this->udpServer->getServerPort());
+		}
+		# Otherwise return false
+		else
+		{
+			return false;
+		}
 	}
 	
 	/** 

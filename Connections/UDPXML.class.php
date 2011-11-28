@@ -92,9 +92,11 @@ class UDPXML
 	/** 
 	* Discover BoxeeBox via UDP XML broadcast
 	*
+	* @param	debug		if true return raw XML reponse data
+	*
 	* @return bool success
 	*/
-	public function discover()
+	public function discover($debug = false)
 	{
 		#	Compose discovery packet
 		#
@@ -148,7 +150,7 @@ class UDPXML
 				if (preg_match('/\<bdp1 cmd="(?P<cmd>.*)" application="(?P<application>.*)" version="(?P<version>.*)" name="(?P<name>.*)" httpPort="(?P<httpPort>.*)" httpAuthRequired="(?P<httpAuthRequired>.*)" response="(?P<response>.*)" signature="(?P<signature>.*)"\/\>/i', $reponse, $matches) == 1)
 				{
 					# Extract key information
-					$this->serverAddress	= $serverAddress;
+					$this->serverAddress		= $serverAddress;
 					$this->serverHostname		= $matches['name'];
 					$this->serverPort			= $matches['httpPort'];
 					# Indicate success
@@ -158,10 +160,18 @@ class UDPXML
 		}
 
 		# Set socket to non-blocking
-		socket_set_nonblock($this->socket);
-		
-		# Return success
-		return $discoverSuccess;
+		socket_set_nonblock($this->socket);		
+		# Return sucess or successful response in debug mode
+		if ($debug)
+		{
+			//return '<?xml version="1.0"?\>' . "\n" . '<BDP1 cmd="found" application="boxee" version="1.2.2" name="boxeebox" httpPort="8800" httpAuthRequired="false" response="0F7106058AABB82D337EDF784097B91E" signature="93F823EA481B6E1F4059914B79B52EF9"/>' . "\n\nfrom 10.10.10.110";
+			return $discoverSuccess ? ($reponse . "\n\nfrom " . $this->serverAddress) : '';
+		}
+		# Otherwise return success
+		else
+		{
+			return $discoverSuccess;
+		}
 	}
 	
 	/** 
