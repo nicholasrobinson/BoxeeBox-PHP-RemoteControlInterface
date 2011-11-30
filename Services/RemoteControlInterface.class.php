@@ -152,6 +152,19 @@ class RemoteControlInterface
 		return self::stringify(__FUNCTION__, array($key));
 	}
 	
+	/** 
+	* Send specified unicode character
+	*
+	* @param	key		 key to send
+	*
+	* @return string
+	*/
+	public function SendUnicodeChar($char)
+	{
+		return self::stringify(__FUNCTION__, array($char));
+	}
+	
+	
 /** 
 * BoxeeBox Commands
 */
