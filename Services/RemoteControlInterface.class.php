@@ -179,7 +179,7 @@ class RemoteControlInterface
 	*/
 	public function SendASCIIKeyMacro($key)
 	{
-		return self::stringify(__FUNCTION__, array($key + 61696));
+		return self::SendKey(ord($key) + 61696);
 	}
 	
 	/** 
@@ -240,6 +240,36 @@ class RemoteControlInterface
 	public function SendBackspaceKeyMacro()
 	{
 		return self::SendKey(61704);
+	}
+	
+	/** 
+	* Hide Cursor
+	*
+	* @return string
+	*/
+	public function SendHideCursorMacro()
+	{
+		return self::SendKey(274);
+	}
+	
+	/** 
+	* Show shutdown menu
+	*
+	* @return string
+	*/
+	public function SendPowerButtonMacro()
+	{
+		return self::SendKey(277);
+	}
+	
+	/** 
+	* Send OK button
+	*
+	* @return string
+	*/
+	public function SendOKButtonMacro()
+	{
+		return self::SendKey(256);
 	}
 	
 }
