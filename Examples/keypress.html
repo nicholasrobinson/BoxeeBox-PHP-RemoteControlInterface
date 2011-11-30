@@ -147,13 +147,151 @@
 			/**
 			* Flatten command into BoxeeBox Remote Control Interface command
 			*
-			* @param  char		 key to send
+			* @return string
+			*/
+			function GetGuiStatus()
+			{
+				return BBRCI("GetGuiStatus()");
+			}
+
+			/**
+			* Flatten command into BoxeeBox Remote Control Interface command
+			*
+			* @param  char		 character to send
 			*
 			* @return string
 			*/
 			function SendUnicodeChar(char)
 			{
 				return BBRCI("SendUnicodeChar(" + char + ")");
+			}
+
+			/**
+			* Flatten command into BoxeeBox Remote Control Interface command
+			*
+			* @return string
+			*/
+			function Restart()
+			{
+				return BBRCI("Restart()");
+			}
+
+			/**
+			* Flatten command into BoxeeBox Remote Control Interface command
+			*
+			* @return string
+			*/
+			function Shutdown()
+			{
+				return BBRCI("Shutdown()");
+			}
+
+			/**
+			* Flatten command into BoxeeBox Remote Control Interface command
+			*
+			* @return string
+			*/
+			function _Exit()
+			{
+				return BBRCI("_Exit()");
+			}
+
+			/**
+			* Flatten command into BoxeeBox Remote Control Interface command
+			*
+			* @return string
+			*/
+			function Reset()
+			{
+				return BBRCI("Reset()");
+			}
+
+			/**
+			* Flatten command into BoxeeBox Remote Control Interface command
+			*
+			* @return string
+			*/
+			function RestartApp()
+			{
+				return BBRCI("RestartApp()");
+			}
+
+			/**
+			* Flatten command into BoxeeBox Remote Control Interface command
+			*
+			* @return string
+			*/
+			function GetCurrentlyPlaying()
+			{
+				return BBRCI("GetCurrentlyPlaying()");
+			}
+
+			/**
+			* Flatten command into BoxeeBox Remote Control Interface command
+			*
+			* @param  path		 of thumbnail
+			*
+			* @return string
+			*/
+			function GetThumbnail(path)
+			{
+				return BBRCI("GetThumbnail(" + path + ")");
+			}
+
+			/**
+			* Flatten command into BoxeeBox Remote Control Interface command
+			*
+			* @return string
+			*/
+			function IsBrowserMouseActive()
+			{
+				return BBRCI("IsBrowserMouseActive()");
+			}
+
+			/**
+			* Flatten command into BoxeeBox Remote Control Interface command
+			*
+			* @return string
+			*/
+			function GetPlaySpeed()
+			{
+				return BBRCI("GetPlaySpeed()");
+			}
+
+			/**
+			* Flatten command into BoxeeBox Remote Control Interface command
+			*
+			* @param  speed		 speed
+			*
+			* @return string
+			*/
+			function SetPlaySpeed(speed)
+			{
+				return BBRCI("SetPlaySpeed(" + speed + ")");
+			}
+
+			/**
+			* Flatten command into BoxeeBox Remote Control Interface command
+			*
+			* @param  path		 movie path
+			*
+			* @return string
+			*/
+			function GetMovieDetails(path)
+			{
+				return BBRCI("GetMovieDetails(" + path + ")");
+			}
+
+			/**
+			* Flatten command into BoxeeBox Remote Control Interface command
+			*
+			* @param  rate		 repeat rate
+			*
+			* @return string
+			*/
+			function KeyRepeat(rate)
+			{
+				return BBRCI("KeyRepeat(" + rate + ")");
 			}
 
 			/**

@@ -2,6 +2,20 @@
 /*
  *	File:			RemoteControlInterface.class.php
  *	Description:	RemoteControlInterface Services class
+ *					Commands are derived from http://developer.boxee.tv/Remote_Control_Interface and BoxeeBox Source Files:
+ *					- boxee-ce4100-1.2.2/xbmc/lib/libGoAhead/XBMChttp.cpp
+ *					- boxee-ce4100-1.2.2/guilib/Key.h
+ *					Not yet implemented:
+ *					- addmediasource(name, path, type, scantype)
+ *					- removemediasource(name)
+ *					- getmusiclabel(name)
+ *					- getvideolabel(name)
+ *					- filedownload(...) / getthumb(...) [alias to same command]
+ *					- getthumbfilename(album, artist)
+ *					- sendmove(..)
+ *					- querymusicdatabase(.)
+ *					- queryvideodatabase(.)
+ *					- action(action_id)
  *	Author:			Nicholas Robinson 11/26/2011
  */
 
@@ -153,9 +167,19 @@ class RemoteControlInterface
 	}
 	
 	/** 
+	* Get Gui Status
+	*
+	* @return string
+	*/
+	public function GetGuiStatus()
+	{
+		return self::stringify(__FUNCTION__);
+	}
+	
+	/** 
 	* Send specified unicode character
 	*
-	* @param	key		 key to send
+	* @param	char		 character to send
 	*
 	* @return string
 	*/
@@ -164,6 +188,136 @@ class RemoteControlInterface
 		return self::stringify(__FUNCTION__, array($char));
 	}
 	
+	/** 
+	* Restart XBMC/Boxee
+	*
+	* @return string
+	*/
+	public function Restart()
+	{
+		return self::stringify(__FUNCTION__);
+	}
+	
+	/** 
+	* Shutdown XBMC/Boxee
+	*
+	* @return string
+	*/
+	public function Shutdown()
+	{
+		return self::stringify(__FUNCTION__);
+	}
+	
+	/** 
+	* Exit XBMC/Boxee
+	* Real function name is reserved in PHP, hence modifed with underscore
+	*
+	* @return string
+	*/
+	public function _Exit()
+	{
+		return self::stringify('Exit');
+	}
+	
+	/** 
+	* Reset XBMC/Boxee
+	*
+	* @return string
+	*/
+	public function Reset()
+	{
+		return self::stringify(__FUNCTION__);
+	}
+	
+	/** 
+	* Restart XBMC/Boxee App
+	*
+	* @return string
+	*/
+	public function RestartApp()
+	{
+		return self::stringify(__FUNCTION__);
+	}
+	
+	/** 
+	* Get currently playing filename
+	*
+	* @return string
+	*/
+	public function GetCurrentlyPlaying()
+	{
+		return self::stringify(__FUNCTION__);
+	}
+	
+	/** 
+	* Get Base64 encoded thumbnail image
+	* For example GetThumbnail('special://masterprofile/profiles/nicholas.robinson/Thumbnails/Pictures/c/ca6572e2.tbn')
+	*
+	* @param	path	path of thumbnail
+	*
+	* @return string
+	*/
+	public function GetThumbnail($path)
+	{
+		return self::stringify(__FUNCTION__, array($path));
+	}
+	
+	/** 
+	* Determine if mouse mode is enabled
+	*
+	* @return string
+	*/
+	public function IsBrowserMouseActive()
+	{
+		return self::stringify(__FUNCTION__);
+	}
+	
+	/** 
+	* Get play speed
+	*
+	* @return string
+	*/
+	public function GetPlaySpeed()
+	{
+		return self::stringify(__FUNCTION__);
+	}
+	
+	/** 
+	* Set play speed
+	*
+	* @param	speed	play speed
+	*
+	* @return string
+	*/
+	public function SetPlaySpeed($speed)
+	{
+		return self::stringify(__FUNCTION__, array($speed));
+	}
+	
+	/** 
+	* Get Movie Details
+	*
+	* @param	path	 movie path
+	*
+	* @return string
+	*/
+	public function GetMovieDetails($path)
+	{
+		return self::stringify(__FUNCTION__, array($path));
+	}
+	
+	/** 
+	* Set key repeat rate (0 = off)
+	* This only applies to directional buttons
+	*
+	* @param	rate	 repeat rate
+	*
+	* @return string
+	*/
+	public function KeyRepeat($rate)
+	{
+		return self::stringify(__FUNCTION__, array($rate));
+	}
 	
 /** 
 * BoxeeBox Commands
