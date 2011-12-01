@@ -122,6 +122,11 @@
 							break;
 						// Default
 						default:
+							// Upper-case alphabetic
+							if (e.keyCode >= 'A'.charCodeAt(0) && e.keyCode <= 'Z'.charCodeAt(0))
+							{
+								SendUnicodeChar(e.keyCode);
+							}
 							break;
 					}	
 				}
@@ -212,7 +217,7 @@
 							break;
 						// Default
 						default:
-							// lower-case alphabetic
+							// Lower-case alphabetic
 							if (e.keyCode >= 'A'.charCodeAt(0) && e.keyCode <= 'Z'.charCodeAt(0))
 							{
 								SendUnicodeChar(e.keyCode + 32);
